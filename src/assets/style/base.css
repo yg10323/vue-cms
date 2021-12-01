@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+html, body, #app {
+    height: 100%;
+    width: 100%;
+}
+
+#app {
+    background: url(../images/bg.svg);
+}
+
+li {
+    list-style: none;
+}
