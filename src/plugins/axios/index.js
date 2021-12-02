@@ -10,7 +10,7 @@ const trans = (apiObj) => {
         obj[apiKey] = (payload) => _axiosInstance({
             method: data.method,
             url: '/api' + data.url,
-            ...payload,
+            ...payload
         });
     });
 

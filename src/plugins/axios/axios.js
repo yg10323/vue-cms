@@ -19,9 +19,11 @@ instance.interceptors.request.use(
         // if (reg.test(reqObj.url)) {
         //     reqObj.url = reqObj.url.replace(reg, Object.values(reqObj.path)[0]);
         // }
-        // if (sessionStorage.getItem("token")) {
-        //     reqObj.headers.token = sessionStorage.getItem("token");
-        // }
+        // 发送请求时携带token
+        if (localStorage.getItem("token")) {
+            reqObj.headers.Authorization = JSON.parse(localStorage.getItem("token"));
+
+        }
         return reqObj;
     },
     err => Promise.reject(err)

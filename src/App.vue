@@ -5,9 +5,7 @@
 </template>
 
 <script>
-import user from "@/views/user/user.vue";
 export default {
-  components: { user },
 };
 </script>
 <style lang="scss">

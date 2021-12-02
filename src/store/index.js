@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import login from './login'
+
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state: {
   },
   mutations: {
@@ -11,5 +13,13 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
+    login
   }
 })
+
+export default store
+
+
+export function initStore() {
+  store.commit('loadLocalStorage')
+}

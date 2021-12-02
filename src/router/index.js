@@ -6,20 +6,24 @@ Vue.use(VueRouter)
 
 const routes = [
     {
+        path: '/',
+        redirect: '/main'
+    },
+    {
         path: "/main",
         name: "main",
-        component: () => import('@/views/main.vue')
+        component: () => import('@/views/main/main')
     },
     {
         path: '/login',
         name: 'login',
-        component: () => import('@/views/login/index.vue')
+        component: () => import('@/views/login/index')
     },
 
     {
         path: "*",
         name: "404",
-        component: () => import('@/views/404.vue')
+        component: () => import('@/views/404')
     }
 ]
 
@@ -34,7 +38,7 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
     // 前往非登录页之前判断有无登录
     if (to.path !== '/login') {
-        const token = JSON.parse(sessionStorage.getItem('token'))
+        const token = JSON.parse(localStorage.getItem('token'))
         if (!token) {
             next({ path: '/login' })
         }

@@ -38,7 +38,7 @@
       <span>请使用外卖猫APP扫一扫</span>
     </div>
     <div class="login-bottom">
-      <div class="login-bottom-retrieve" v-if="!showQrCode">找回密码</div>
+      <div class="login-bottom-retrieve" v-if="!showQrCode">忘记密码</div>
       <div class="login-bottom-qrcode">
         <i
           class="login-bottom-qrcode-icon iconfont icon-erweima1"
@@ -50,6 +50,7 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
   data() {
     var checkaccount = (rule, value, callback) => {
@@ -94,8 +95,12 @@ export default {
     // 判断登录成功与否
     loginStatus(res) {
       if (res.code === 200) {
-        sessionStorage.setItem("token", JSON.stringify(res.token));
-        this.$router.push("/main");
+        this.socket.close();
+        // 将用户相关信息保存至vuex和localStorage
+        this.setToken(res.token);
+        this.setUserInfo(res.userInfo);
+        // 请求菜单数据
+        this.getMenu();
       } else {
         this.loginType = "error";
       }
@@ -129,7 +134,7 @@ export default {
             this.disabled = false;
           }, 3000);
         } else {
-          console.log("error submit!!");
+          console.log("error login!!");
           return false;
         }
       });
@@ -137,6 +142,17 @@ export default {
     // 重置
     resetForm(formName) {
       this.$refs[formName].resetFields();
+    },
+    // 请求菜单数据
+    getMenu() {
+      this.$api.userApis.getSellerMenu().then((res) => {
+        if (res.code === 200) {
+          // 将菜单信息保存至vuex和localStorage
+          this.setMenus(res.menus);
+          // 跳转到首页
+          this.$router.push("/main");
+        }
+      });
     },
     // 点击右下角二维码图标时
     handleClick() {
@@ -160,6 +176,7 @@ export default {
     scanCodeWebToken() {
       this.socket.on("scanCodeWebToken", (res) => this.loginStatus(res));
     },
+    ...mapMutations(["setToken", "setUserInfo", "setMenus"]),
   },
 };
 </script>
