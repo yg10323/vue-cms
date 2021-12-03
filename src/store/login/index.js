@@ -1,3 +1,6 @@
+import router from '@/router'
+import utils from '@/utils'
+
 export default {
     state: {
         token: '',
@@ -10,6 +13,7 @@ export default {
             state.token = token
             localStorage.setItem('token', JSON.stringify(token))
         },
+        // 缓存用户信息
         setUserInfo(state, userInfo) {
             state.userInfo.account = userInfo.account
             state.userInfo.role_id = userInfo.role_id
@@ -20,24 +24,28 @@ export default {
             state.menus = menus
             localStorage.setItem('menus', JSON.stringify(menus))
 
-            // 1. menus => routes
-            // const routes = mapmenussToRoutes(menus)
-
-            // 2. 将routes添加到router > main > children
+            // 匹配出该角色对应的路由配置并添加路由
+            const routes = utils.mapMenus(menus);
+            routes.forEach(route => router.addRoute('main', route))
         },
         // 页面刷新时, 为vuex重新赋值
         loadLocalStorage(state) {
-            const token = localStorage.getItem('token')
+            const token = JSON.parse(localStorage.getItem('token'))
             if (token) {
                 state.token = token
             }
-            const userInfo = localStorage.getItem('userInfo')
+            const userInfo = JSON.parse(localStorage.getItem('userInfo'))
             if (userInfo) {
                 state.userInfo = userInfo
             }
-            const menus = localStorage.getItem('menus')
+            const menus = JSON.parse(localStorage.getItem('menus'))
             if (menus) {
-                state.menuss = menus
+                // state.menus = menus
+                this.commit('setMenus', menus)
+            }
+            const defaultActive = sessionStorage.getItem('defaultActive')
+            if (defaultActive) {
+                this.commit('setActive', defaultActive)
             }
         }
     }

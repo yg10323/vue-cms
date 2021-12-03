@@ -1,0 +1,171 @@
+<svg
+  width="315px"
+  height="170px"
+  viewBox="0 0 315 170"
+  version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+>
+  <style type="text/css">
+    .hrect {
+      animation-name: hide;
+      animation-duration: .2s;
+      animation-timing-function: ease-in;
+      animation-delay: 1s;
+      animation-fill-mode: forwards;
+      opacity: 1;
+    }
+
+    .face {
+      animation-name:left-transform;
+      animation-duration: 1s;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+      animation-delay: 1.2s;
+      fill: #dadee0;
+      stroke-width: 0;
+      d: path('M127.5 140 136 116.5 150 79 166.5 33 151.5 33 133.5 79 110 140Z');
+    }
+
+    .face + .face {
+      transform-origin: center center;
+      d: path('M171.5 140 180 116.5 194 79 210.5 33 195.5 33 177.5 79 154 140Z');
+      transform: scale(-1,1) translateX(-50px);
+      animation-name: right-transform;
+    }
+
+    #mustache, #ears, #node {
+      animation-name: show;
+      animation-duration: .2s;
+      animation-timing-function: ease-in;
+      animation-delay: 2.2s;
+      animation-fill-mode: forwards;
+      opacity: 0;
+    }
+
+
+    @keyframes left-transform {
+      to {
+        d: path('M160 169.5 100 135 100 65.5 160 31 106.5 0.5 65.5 65.5 81 135Z');
+        stroke-width: 1;
+      }
+    }
+
+    @keyframes right-transform {
+      to {
+        d: path('M160 169.5 100 135 100 65.5 160 31 106.5 0.5 65.5 65.5 81 135Z');
+        transform-origin: 50.7% center;
+        transform: scale(-1,1) translateX(0px);
+        stroke-width: 1;
+      }
+    }
+
+    @keyframes show {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes hide {
+      to {
+        opacity: 0;
+      }
+    }
+  </style>
+  <defs>
+    <linearGradient
+      x1="100%"
+      y1="74.6443262%"
+      x2="0%"
+      y2="24.9691909%"
+      id="linearGradient-1"
+    >
+      <stop stop-color="#FBFBFB" offset="0%" />
+      <stop stop-color="#B0B2B4" offset="100%" />
+    </linearGradient>
+  </defs>
+
+  <g
+    id="animaris"
+    stroke="none"
+    stroke-width="1"
+    fill="none"
+    fill-rule="evenodd"
+  >
+    <g
+      id="right-mustache"
+      transform="translate(220.000000, 121.000000)"
+      stroke="#979797"
+    >
+      <path
+        d="M94.5,7.99351338 C68.1639344,-1.33226763e-15 36.6639344,-1.99837834 0,1.99837834"
+        id="mustache"
+      />
+      <path
+        d="M93.7254098,28.8846754 C57.5778689,12.0982973 26.3360656,6.5028379 0,12.0982973"
+        id="mustache"
+      />
+    </g>
+    <g
+      id="left-mustache"
+      transform="translate(0.000000, 121.000000)"
+      stroke="#979797"
+    >
+      <path
+        d="M94.5,7.99351338 C68.1639344,-1.33226763e-15 36.6639344,-1.99837834 0,1.99837834"
+        id="mustache"
+        transform="translate(47.250000, 3.996757) scale(-1, 1) translate(-47.250000, -3.996757) "
+      />
+      <path
+        d="M93.7254098,28.8846754 C57.5778689,12.0982973 26.3360656,6.5028379 0,12.0982973"
+        id="mustache"
+        transform="translate(46.862705, 19.442338) scale(-1, 1) translate(-46.862705, -19.442338) "
+      />
+    </g>
+    <g id="node" transform="translate(100.000000, 31.000000)">
+      <polygon
+        id="node-center"
+        fill="url(#linearGradient-1)"
+        points="0 34.5 60 138.5 120 104 60 0"
+      />
+      <polygon
+        id="node-left-top"
+        fill="#F6F7F7"
+        points="0 34.5 0 104 20 69.5"
+      />
+      <polygon
+        id="node-left-bottom"
+        fill-opacity="0.8"
+        fill="#808080"
+        points="0 104 60 138.5 20 69"
+      />
+      <polygon
+        id="node-right-bottom"
+        fill="#B1B3B5"
+        points="120 34.5 120 104 100 69.25"
+      />
+      <polygon
+        id="node-right-top"
+        fill-opacity="0.8"
+        fill="#808080"
+        points="120 34.5 60 0 100 69.5"
+      />
+    </g>
+    <rect class="hrect" fill="#DADEE0" x="131" y="99" width="60" height="13" />
+    <path class="face" stroke="#535453" />
+    <path class="face" stroke="#535453" />
+
+    <g id="ears" fill="#F7A4A4">
+      <path
+        d="M117.597511,26.0634849 C124.132269,26.0634849 130.341026,22.6416557 118.424835,16.6391288 C114.726694,14.7762693 112.64478,13.9422657 110.366844,12.8816257 C106.051081,10.8721444 103.627827,11.0769177 101.808969,18.5440627 C98.8899078,30.527982 101.262361,38.9342813 106.381255,32.3995235 C108.604238,29.5616728 109.677372,28.2187923 110.715306,27.6076319 C112.067437,26.8114649 113.900603,26.0634849 117.597511,26.0634849 Z"
+        id="Path-3"
+        transform="translate(112.854946, 23.238446) rotate(15.000000) translate(-112.854946, -23.238446) "
+      />
+      <path
+        d="M211.597511,26.0634849 C218.132269,26.0634849 224.341026,22.6416557 212.424835,16.6391288 C208.726694,14.7762693 206.64478,13.9422657 204.366844,12.8816257 C200.051081,10.8721444 197.627827,11.0769177 195.808969,18.5440627 C192.889908,30.527982 195.262361,38.9342813 200.381255,32.3995235 C202.604238,29.5616728 203.677372,28.2187923 204.715306,27.6076319 C206.067437,26.8114649 207.900603,26.0634849 211.597511,26.0634849 Z"
+        id="Path-3"
+        transform="translate(206.854946, 23.238446) scale(-1, 1) rotate(15.000000) translate(-206.854946, -23.238446) "
+      />
+    </g>
+  </g>
+</svg>

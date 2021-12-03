@@ -3,6 +3,7 @@ import { web_socket_config } from '../../../config.json'
 
 // socket客户端
 export class SoClient {
+
     constructor(action) {
         this.host = web_socket_config.host;
         this.port = web_socket_config.port;
@@ -27,6 +28,7 @@ export class SoClient {
 
         // 启动心跳
         // this.heartCheck()
+
         return this.client;
     }
 
@@ -38,6 +40,7 @@ export class SoClient {
         }
     }
 
+    // 暂留 目前的服务器承受不住心跳包带来的压力, 所以暂时关闭心跳
     // 心跳包
     heartCheck() {
         this.heartTimer = setInterval(() => {

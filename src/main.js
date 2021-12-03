@@ -6,7 +6,7 @@ import registerElement from './plugins/element/element'
 import { SoClient } from './plugins/socket/socket'
 import { initStore } from './store'
 import api from './plugins/axios'
-
+import utils from './utils/index'
 
 Vue.config.productionTip = false
 
@@ -16,6 +16,7 @@ registerElement(Vue);//注册element组件
 
 Vue.prototype.$socket = SoClient.getInstance;
 Vue.prototype.$api = api;
+Vue.prototype.$utils = utils
 
 
 new Vue({

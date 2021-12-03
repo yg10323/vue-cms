@@ -12,7 +12,7 @@ const routes = [
     {
         path: "/main",
         name: "main",
-        component: () => import('@/views/main/main')
+        component: () => import('@/views/main/main.vue')
     },
     {
         path: '/login',
@@ -34,20 +34,28 @@ const router = new VueRouter({
 })
 
 
+// 避免冗余导航 （重复点击菜单栏报错问题）
+const originalPush = VueRouter.prototype.push;
+VueRouter.prototype.push = function push(location) {
+    return originalPush.call(this, location).catch(err => err);
+};
+
 // 全局导航守卫
 router.beforeEach((to, from, next) => {
     // 前往非登录页之前判断有无登录
     if (to.path !== '/login') {
-        const token = JSON.parse(localStorage.getItem('token'))
+        const token = localStorage.getItem('token')
         if (!token) {
             next({ path: '/login' })
         }
+
     }
 
-    // 重定向显示overview > map-menu > 19行
-    // if (to.path === '/main') {
-    //     next({ path: firstMenu.path })
-    // }
+    // 重定向显示overview
+    if (to.path === '/main') {
+        const path = JSON.parse(localStorage.getItem('menus'))[0].path
+        next({ path })
+    }
 
     next()
 })

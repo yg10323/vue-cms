@@ -1,5 +1,8 @@
 <template>
   <div class="login-register">
+    <div class="login-register-logo">
+      <img class="img" src="@/assets/images/logo.svg" alt="logo" />
+    </div>
     <div class="login-register-title">外卖猫-后台管理系统</div>
     <el-tabs type="border-card" :stretch="true">
       <el-tab-pane>
@@ -34,6 +37,15 @@ export default {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+
+  &-logo {
+    // top: 50px;
+    text-align: center;
+    margin-bottom: 10px;
+    .img {
+      height: 70px;
+    }
+  }
 
   &-title {
     position: relative;
