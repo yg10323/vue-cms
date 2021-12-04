@@ -47,7 +47,7 @@ export default {
       if (command === "quit") {
         // 退出,清空storage并跳转
         this.clearStorage();
-        this.$router.replace({ path: "/login" });
+        location.reload();
       } else if (command === "myself") {
         // 修改侧边栏选中状态为个人信息,同时跳转路由
         this.setActive("1013");
