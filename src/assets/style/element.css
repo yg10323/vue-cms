@@ -1,0 +1,7 @@
+/* 对element-ui的一些样式做全局修改 */
+
+
+/* 水平滚动条 */
+.el-scrollbar__wrap {
+    overflow-x: hidden !important;
+}

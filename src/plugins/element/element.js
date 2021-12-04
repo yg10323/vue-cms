@@ -34,7 +34,18 @@ import {
     Divider,
     Link,
     Dialog,
-    Scrollbar
+    Scrollbar,
+    Cascader,
+    TimeSelect,
+    Switch,
+    Checkbox,
+    CheckboxGroup,
+    Radio,
+    RadioGroup,
+    Popover,
+    Upload,
+    Progress
+
 } from 'element-ui'
 
 const components = {
@@ -71,7 +82,19 @@ const components = {
     Divider,
     Link,
     Dialog,
-    Scrollbar
+    Scrollbar,
+    Cascader,
+    TimeSelect,
+    Switch,
+    Checkbox,
+    CheckboxGroup,
+    Radio,
+    RadioGroup,
+    Popover,
+    Upload,
+    Progress
+
+
 }
 
 

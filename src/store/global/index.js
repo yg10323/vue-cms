@@ -8,10 +8,11 @@ export default {
         changeCollapse(state) {
             state.isCollapse = !state.isCollapse;
         },
-        // 控制页面全局刷新
+        // 用户退出后清空缓存,初始化侧边栏选中状态
         clearStorage(state) {
             localStorage.clear();
             sessionStorage.clear();
+            state.defaultActive = '1000'
         },
         // 侧边栏的选中状态
         setActive(state, active_id) {

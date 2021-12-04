@@ -67,6 +67,7 @@ export default {
   .page-info {
     background-color: #fff;
     border-radius: 5px;
+    padding: 40px;
   }
 }
 </style>

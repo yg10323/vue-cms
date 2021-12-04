@@ -1,3 +1,5 @@
+// import AMap from 'AMap'
+
 export default {
     // 根据角色动态匹配路由
     mapMenus(menus) {
@@ -23,5 +25,45 @@ export default {
         }
 
         return roleRoutes
-    }
+    },
+
+    // 级联菜单数据格式化
+    setOptions(data) {
+        const ps = new Map()
+        const final = [];
+        // 对一级菜单去重
+        for (const obj of data) {
+            ps.set(obj.op_id, obj.options)
+        }
+        // 将二级菜单添加至一级菜单中
+        ps.forEach((value, key) => {
+            const o = {
+                value: key,
+                label: value,
+                children: []
+            };
+
+            for (const obj of data) {
+                if (obj.op_id === key) {
+                    o.children.push({
+                        value: obj.ch_id,
+                        label: obj.child
+                    })
+                }
+            }
+
+            final.push(o)
+        })
+
+        return final
+    },
+
+    // 获取城市定位
+    getCity() {
+        var citysearch = new AMap.CitySearch();
+        citysearch.getLocalCity(function (status, result) {
+            console.log(status, result);
+        });
+
+    },
 }
