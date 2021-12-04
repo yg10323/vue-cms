@@ -1,10 +1,10 @@
 {
     "axios_config": {
-        "host": "http://124.70.20.215",
-        "port": 2140
+        "host": "服务器地址",
+        "port": 服务器端口
     },
     "web_socket_config": {
-        "host": "http://124.70.20.215",
-        "port": 1070
+        "host": "socket服务器地址",
+        "port": socket端口
     }
 }
