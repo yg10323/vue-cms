@@ -359,7 +359,7 @@ export default {
         .then((res) => {
           if (res.code == 200) {
             this.hasShop = true;
-            this.shopInfo = {};
+            // this.shopInfo = {};
             this.$message({
               type: "success",
               message: res.message,

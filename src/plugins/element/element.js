@@ -1,7 +1,7 @@
 // 导入组件
 import {
     Message,
-    Loading,
+    MessageBox,
     Button,
     Form,
     FormItem,
@@ -50,7 +50,7 @@ import {
     DescriptionsItem,
     Tag,
     Result,
-    Image
+    Image,
 } from 'element-ui'
 
 const components = {
@@ -113,5 +113,5 @@ export default function (Vue) {
     }
 
     Vue.prototype.$message = Message
-    Vue.prototype.$loading = Loading
+    Vue.prototype.$confirm = MessageBox
 }

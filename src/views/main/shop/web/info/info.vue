@@ -1,10 +1,15 @@
 <template>
-  <div>店铺信息</div>
+  <div class="shop-info">店铺信息</div>
 </template>
 
 <script>
 export default {
   name: "",
+  created() {},
+  data() {
+    return {};
+  },
+  methods: {},
 };
 </script>
 

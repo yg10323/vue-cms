@@ -12,7 +12,7 @@ const routes = [
     {
         path: "/main",
         name: "main",
-        component: () => import('@/views/main/main.vue')
+        component: () => import('@/views/main/main')
     },
     {
         path: '/login',
@@ -24,6 +24,10 @@ const routes = [
         path: "*",
         name: "404",
         component: () => import('@/views/404')
+    },
+    {
+        path: '/test',
+        component: () => import('@/components/test')
     }
 ]
 

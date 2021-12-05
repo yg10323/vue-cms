@@ -50,6 +50,8 @@
 
       <div class="btns">
         <el-button :disabled="auth" @click="handleAuth">实名认证</el-button>
+        <el-button type="danger" @click="handleDelete">注销账号</el-button>
+
         <span v-if="auth && showControl">
           <el-button type="primary" :disabled="!auth" @click="checkAuthInfo"
             >提交信息</el-button
@@ -57,11 +59,12 @@
         </span>
       </div>
     </div>
+
     <el-divider content-position="right">店铺信息</el-divider>
     <div class="shop-info">
       <el-descriptions
         class="myshop"
-        title="我的店铺"
+        title="店铺概览"
         v-if="shopInfo"
         :column="2"
       >
@@ -203,7 +206,36 @@ export default {
       }
       this.submit();
     },
-
+    // 弹窗提示是否注销
+    handleDelete() {
+      this.$confirm("注销账号会将店铺一同删除, 是否继续?", "提示", {
+        confirmButtonText: "确定",
+        type: "warning",
+      })
+        .then(() => {
+          this.deleteAccount();
+        })
+        .catch(() => {
+          this.$message({
+            type: "info",
+            message: "已取消删除",
+          });
+        });
+    },
+    // 注销
+    deleteAccount() {
+      this.$api.userApis.deleteAccount().then((res) => {
+        if (res.code === 200) {
+          localStorage.clear();
+          location.reload();
+          this.$message({
+            type: "success",
+            message: res.message,
+          });
+          this.$store.global.commit("setActive", "1000");
+        }
+      });
+    },
     // 提交实名请求
     submit() {
       // 更新数据库

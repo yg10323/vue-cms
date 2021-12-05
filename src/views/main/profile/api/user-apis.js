@@ -33,6 +33,11 @@ export default {
         name: "跟新实名信息",
         url: '/seller/update/auth',
         method: 'POST'
+    },
+    deleteAccount: {
+        name: '注销账号',
+        url: '/seller/delete',
+        method: 'DELETE'
     }
 
 }

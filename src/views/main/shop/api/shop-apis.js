@@ -13,5 +13,10 @@ export default {
         name: '查询是否已经注册过店铺',
         url: '/shop/has_shop',
         method: 'GET',
+    },
+    getShopInfo: {
+        name: '获取店铺信息',
+        url: '/shop/info',
+        method: 'GET',
     }
 }
