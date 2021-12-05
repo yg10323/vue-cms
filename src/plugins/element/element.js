@@ -1,6 +1,7 @@
 // 导入组件
 import {
     Message,
+    Loading,
     Button,
     Form,
     FormItem,
@@ -44,8 +45,12 @@ import {
     RadioGroup,
     Popover,
     Upload,
-    Progress
-
+    Progress,
+    Descriptions,
+    DescriptionsItem,
+    Tag,
+    Result,
+    Image
 } from 'element-ui'
 
 const components = {
@@ -92,9 +97,12 @@ const components = {
     RadioGroup,
     Popover,
     Upload,
-    Progress
-
-
+    Progress,
+    Descriptions,
+    DescriptionsItem,
+    Tag,
+    Result,
+    Image
 }
 
 
@@ -105,4 +113,5 @@ export default function (Vue) {
     }
 
     Vue.prototype.$message = Message
+    Vue.prototype.$loading = Loading
 }

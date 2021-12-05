@@ -72,8 +72,8 @@ export default {
     // 路由跳转
     handleClick(route) {
       // 将默认活跃的菜单保存至sessionStorage以及vuex
+      // this.setActive(route.path);
       this.setActive(route.id + "");
-      // sessionStorage.setItem("defaultActive", route.id + "");
       // 路由跳转
       this.$router.push({ path: route.path || "404" });
     },

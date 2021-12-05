@@ -23,6 +23,16 @@ export default {
         name: '创建店铺',
         url: '/seller/create_shop',
         method: 'POST'
+    },
+    getSelfInfo: {
+        name: '获取个人信息',
+        url: '/seller/self_info',
+        method: 'GET'
+    },
+    updateAuthInfo: {
+        name: "跟新实名信息",
+        url: '/seller/update/auth',
+        method: 'POST'
     }
 
 }

@@ -3,6 +3,8 @@ import axios from "axios";
 import VueRouter from "vue-router";
 import { axios_config } from '../../../config.json'
 
+let loadingInstance;
+
 const instance = axios.create({
     baseURL: `${axios_config.host}:${axios_config.port}`,
     timeout: 60 * 1000,

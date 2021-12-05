@@ -1,7 +1,7 @@
 export default {
     state: {
         isCollapse: false,
-        defaultActive: '1000',
+        defaultActive: '/main/overview',
     },
     mutations: {
         // 控制侧边栏展开
