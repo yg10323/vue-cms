@@ -208,10 +208,12 @@ export default {
     },
     // 弹窗提示是否注销
     handleDelete() {
-      this.$confirm("注销账号会将店铺一同删除, 是否继续?", "提示", {
-        confirmButtonText: "确定",
-        type: "warning",
-      })
+      this.$messageBox
+        .confirm("注销账号会将店铺一同删除, 是否继续?", "提示", {
+          confirmButtonText: "确定",
+          cancelButtonText: "取消",
+          type: "warning",
+        })
         .then(() => {
           this.deleteAccount();
         })

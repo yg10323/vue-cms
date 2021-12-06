@@ -2,6 +2,7 @@
 import {
     Message,
     MessageBox,
+    Notification,
     Button,
     Form,
     FormItem,
@@ -51,6 +52,10 @@ import {
     Tag,
     Result,
     Image,
+    Collapse,
+    CollapseItem,
+    Drawer,
+    Card
 } from 'element-ui'
 
 const components = {
@@ -102,7 +107,11 @@ const components = {
     DescriptionsItem,
     Tag,
     Result,
-    Image
+    Image,
+    Collapse,
+    CollapseItem,
+    Drawer,
+    Card
 }
 
 
@@ -113,5 +122,6 @@ export default function (Vue) {
     }
 
     Vue.prototype.$message = Message
-    Vue.prototype.$confirm = MessageBox
+    Vue.prototype.$messageBox = MessageBox
+    Vue.prototype.$notify = Notification
 }

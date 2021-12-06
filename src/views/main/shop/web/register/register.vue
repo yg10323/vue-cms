@@ -140,10 +140,6 @@
 
         <!-- 图片上传进度条 -->
         <el-progress class="progress" :percentage="percentage"></el-progress>
-        <!-- dialog预览图片 -->
-        <el-dialog :visible.sync="dialogVisible">
-          <img width="100%" :src="dialogImageUrl" alt="" />
-        </el-dialog>
       </el-form-item>
 
       <!-- 商家服务 -->
@@ -206,6 +202,11 @@
         <el-button @click="resetForm('shopInfo')">重置</el-button>
       </el-form-item>
     </el-form>
+
+    <!-- dialog预览图片 -->
+    <el-dialog :visible.sync="dialogVisible">
+      <img width="100%" :src="dialogImageUrl" alt="" />
+    </el-dialog>
   </div>
 </template>
 
@@ -273,6 +274,7 @@ export default {
       this.$api.shopApis.getClassify().then((res) => {
         const options = this.$utils.setOptions(res);
         this.options = options;
+        sessionStorage.setItem("options", JSON.stringify(this.options));
       });
     },
     // 级联菜单点击后
@@ -359,7 +361,6 @@ export default {
         .then((res) => {
           if (res.code == 200) {
             this.hasShop = true;
-            // this.shopInfo = {};
             this.$message({
               type: "success",
               message: res.message,

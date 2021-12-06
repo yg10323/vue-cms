@@ -14,7 +14,7 @@ export default {
         shop_business: true,
         shop_health: true,
     },
-    // 收集处图片外的数据
+    // 收集除图片外的数据
     shopInfo: {
         seller_id: "",
         name: "",

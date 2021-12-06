@@ -18,5 +18,15 @@ export default {
         name: '获取店铺信息',
         url: '/shop/info',
         method: 'GET',
+    },
+    updateShopInfo: {
+        name: '更新店铺信息',
+        url: '/shop/update',
+        method: 'POST'
+    },
+    updateActivities: {
+        name: '更新店铺活动',
+        url: '/shop/update/activities',
+        method: 'POST'
     }
 }
