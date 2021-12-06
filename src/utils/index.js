@@ -118,10 +118,7 @@ export default {
         if (obj instanceof Date) return new Date(obj)
         if (obj instanceof Function) return new Function(obj)
 
-
         // 利用constructor进行实例化, 不管是对象还是数组
-        // 实例化出的都是各自构造函数的实例, 省去了进行单独判断的步骤
-        // 小技巧大学问
         let newObj = new obj.constructor()
         for (let key in obj) {
             if (obj.hasOwnProperty(key)) {
