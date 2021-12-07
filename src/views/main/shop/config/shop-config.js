@@ -65,4 +65,11 @@ export default {
             { required: true, message: "请选择配送形式", trigger: "change" },
         ],
     },
+
+    // 请求头
+    config: {
+        headers: {
+            "Content-Type": "multipart/form-data",
+        },
+    }
 }

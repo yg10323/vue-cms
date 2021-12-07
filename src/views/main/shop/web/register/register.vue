@@ -5,7 +5,7 @@
       :rules="rules"
       ref="shopInfo"
       label-width="100px"
-      class="shopInfo"
+      class="shop-info"
     >
       <!-- 店铺名 -->
       <el-form-item label="店铺名称" prop="name">
@@ -211,7 +211,7 @@
 </template>
 
 <script>
-import config from "./config/";
+import config from "../../config/shop-config";
 export default {
   name: "",
   created() {
@@ -339,15 +339,10 @@ export default {
     },
     // 提交数据
     submitForm() {
-      let config = {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      };
       this.$api.userApis
         .createShop({
           data: this.fileFormData,
-          config,
+          config: this.cconfig,
           // 使用箭头函数, 否则this指向progressEvent.currentTarget
           // 箭头函数指向执行上下文中的this（由词法作用域决定）
           onUploadProgress: (progressEvent) => {

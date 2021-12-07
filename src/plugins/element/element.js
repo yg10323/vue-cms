@@ -55,7 +55,8 @@ import {
     Collapse,
     CollapseItem,
     Drawer,
-    Card
+    Card,
+    InputNumber
 } from 'element-ui'
 
 const components = {
@@ -111,7 +112,8 @@ const components = {
     Collapse,
     CollapseItem,
     Drawer,
-    Card
+    Card,
+    InputNumber
 }
 
 

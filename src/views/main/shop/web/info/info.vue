@@ -4,7 +4,7 @@
       <el-descriptions class="margin-top" title="我的店铺" :column="1" border>
         <template slot="extra">
           <!-- 抽屉组件 -->
-          <drawer-form></drawer-form>
+          <drawer-form :usable="shopInfo.usable"></drawer-form>
         </template>
 
         <el-descriptions-item>
@@ -88,7 +88,7 @@
       <el-divider content-position="center">活动公告</el-divider>
     </div>
 
-    <div class="cards">
+    <div class="cards" v-if="shopInfo">
       <!-- 活动展示 -->
       <el-card class="box-card">
         <div slot="header" class="clearfix">
@@ -206,16 +206,28 @@ export default {
     },
     // 显示健康证图片
     showHealthImg() {
-      this.imgDialogURL = this.shopInfo.health_certificate_url;
+      this.imgDialogURL =
+        this.shopInfo.health_certificate_url ||
+        "http://124.70.20.215:2140/upload/avatar_default.jpg";
       this.imgDialogVisible = true;
     },
     // 显示营业执照图片
     showBusinessImg() {
-      this.imgDialogURL = this.shopInfo.business_permit_url;
+      this.imgDialogURL =
+        this.shopInfo.business_permit_url ||
+        "http://124.70.20.215:2140/upload/avatar_default.jpg";
       this.imgDialogVisible = true;
+      console.log(this.shopInfo.business_permit_url);
     },
-    // 新增活动的dialog
+    // 控制新增活动的dialog
     showActivityDialog() {
+      if (this.shopInfo.usable !== 1) {
+        this.$notify.error({
+          title: "异常",
+          message: "检测到店铺已被封禁, 请联系管理员进行处理",
+        });
+        return;
+      }
       this.activityDialog = !this.activityDialog;
     },
     // 删除活动

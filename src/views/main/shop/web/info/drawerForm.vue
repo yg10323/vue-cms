@@ -132,6 +132,7 @@
 <script>
 export default {
   name: "",
+  props: ["usable"],
   created() {
     this.fileFormData = new FormData(); // 用于收集图片信息, 上传使用
     this.options = JSON.parse(sessionStorage.getItem("options"));
@@ -158,6 +159,13 @@ export default {
   methods: {
     // 控制抽屉显示
     handleDrawer() {
+      if (this.usable !== 1) {
+        this.$notify.error({
+          title: "异常",
+          message: "检测到店铺已被封禁, 请联系管理员进行处理",
+        });
+        return;
+      }
       this.drawer = true;
     },
     // 抽屉关闭前
