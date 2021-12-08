@@ -132,6 +132,7 @@
       </el-card>
     </div>
 
+    <div v-else>还未注册店铺</div>
     <div class="dialogs">
       <!-- dialog预览图片 -->
       <el-dialog :visible.sync="imgDialogVisible">
