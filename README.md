@@ -4,12 +4,7 @@
 
 config.json已删除
 
-已完成:  
-web端登录、注册  
-权限控制  
-uniapp账号密码登录  
-uniapp扫码登录   =>   uni-app + socket.io + redis  
-注册店铺  
+
  
 ## Project setup
 ```
