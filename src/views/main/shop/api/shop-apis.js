@@ -28,5 +28,15 @@ export default {
         name: '更新店铺活动',
         url: '/shop/update/activities',
         method: 'POST'
+    },
+    getOrdersToday: {
+        name: '获取店铺今日订单',
+        url: '/shop/orders/today',
+        method: 'GET'
+    },
+    getOrdersAll: {
+        name: '获取店铺所有订单',
+        url: '/shop/orders/all',
+        method: 'GET'
     }
 }

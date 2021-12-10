@@ -8,6 +8,11 @@
           <div class="page-info">
             <router-view></router-view>
           </div>
+
+          <el-backtop
+            target=".page-content"
+            :visibility-height="10"
+          ></el-backtop>
         </el-main>
       </el-container>
     </el-container>

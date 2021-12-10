@@ -9,12 +9,20 @@
     >
       <!-- 店铺名 -->
       <el-form-item label="店铺名称" prop="name">
-        <el-input class="input" v-model="shopInfo.name"></el-input>
+        <el-input
+          class="input"
+          placeholder="起个响亮的名字吧"
+          v-model="shopInfo.name"
+        ></el-input>
       </el-form-item>
 
       <!-- 店铺地址 -->
       <el-form-item label="店铺地址" prop="address">
-        <el-input class="input" v-model="shopInfo.address"></el-input>
+        <el-input
+          class="input"
+          placeholder="根据ip定位, 还未写, 暂留"
+          v-model="shopInfo.address"
+        ></el-input>
       </el-form-item>
 
       <!-- 店铺分类 -->
@@ -173,7 +181,11 @@
           trigger: 'blur',
         }"
       >
-        <el-input class="input" v-model="activity.value"></el-input>
+        <el-input
+          class="input"
+          placeholder="优惠虽好, 请仔细填写哦"
+          v-model="activity.value"
+        ></el-input>
         <el-button @click.prevent="removeActivity(activity)" type="danger"
           >删除</el-button
         >

@@ -1,6 +1,10 @@
 
 export default {
-    // 根据角色动态匹配路由
+    /**
+     * 根据角色动态匹配路由
+     * @param {Array} menus 
+     * @returns Array roleRoutes
+     */
     mapMenus(menus) {
         const roleRoutes = [];
         const allRoutes = [];
@@ -26,7 +30,11 @@ export default {
         return roleRoutes
     },
 
-    // 级联菜单数据格式化
+    /**
+     * 级联菜单数据格式化
+     * @param {Array} data 
+     * @returns Array final
+     */
     setOptions(data) {
         const ps = new Map()
         const final = [];
@@ -58,9 +66,9 @@ export default {
     },
 
     /**
-     * 递归删除, 返回新对象
-     * @param data 需要处理的数据
-     * @returns newData 处理后的数据
+     * 对象递归删除空数据, 返回新对象
+     * @param {any} data
+     * @returns  
      */
     deepRemove(data) {
         // 对非对象进行过滤
@@ -78,7 +86,9 @@ export default {
             if (data.hasOwnProperty(key)) {
                 let res = this.deepRemove(data[key])
                 // 判断非空属性,并对其进行保留 (0也要保留)
-                if ((res || res === 0) && JSON.stringify(res) !== '[]' && JSON.stringify(res) !== '{}') newData[key] = res
+                if ((res || res === 0) && JSON.stringify(res) !== '[]' && JSON.stringify(res) !== '{}') {
+                    newData[key] = res
+                }
             }
         }
 
@@ -102,7 +112,7 @@ export default {
     },
 
     /**
-     * 对象的深拷贝
+     * 对象深拷贝
      * @param  obj 
      * @returns newObj
      */
@@ -127,5 +137,59 @@ export default {
         }
 
         return newObj
+    },
+
+    /**
+     * 格式化时间
+     * @param {*} timestamp 
+     * @returns 年-月-日 时:分:秒
+     */
+    formatTime(timestamp) {
+        const d = new Date(parseInt(timestamp));    //根据时间戳生成的时间对象
+        const date = (d.getFullYear()) + "-" +
+            (d.getMonth() + 1) + "-" +
+            (d.getDate()) + " " +
+            (d.getHours()) + ":" +
+            (d.getMinutes()) + ":" +
+            (d.getSeconds());
+        return date;
+    },
+
+    /**
+     * 
+     * @param {Object} orders 
+     * @returns Object data
+     */
+    dealOrderData(orders) {
+        let data = orders
+
+        let current_id, next_id;
+        let foodInfoArray = [];
+
+        for (let i = 0; i < data.length; i++) {
+            current_id = data[i].id;
+            // next_id为undefined表示数组只有一个元素或遍历到了最后一个元素
+            // 当遍历到最后一个元素的时候, 同样需要往foodInfoArray添加一次
+            if (data[i + 1]) {
+                next_id = data[i + 1].id;
+            }
+            else {
+                foodInfoArray.push(data[i].food_info)
+                data[i].food_info = foodInfoArray
+                return data;
+            }
+            // 记录重复id的food_info
+            // 当id不相同时, 将foodInfoArray赋值给food_info
+            if (current_id === next_id) {
+                foodInfoArray.push(data[i].food_info)
+                data.splice(i, 1)
+                i = i - 1;//i减一为了保证下次遍历从当前下标开始
+            } else {
+                foodInfoArray.push(data[i].food_info)
+                data[i].food_info = foodInfoArray
+                foodInfoArray = [];
+            }
+
+        }
     }
 }

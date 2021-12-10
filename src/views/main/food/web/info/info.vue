@@ -53,7 +53,6 @@
                   <el-image
                     style="width: 100px; height: 100px"
                     :src="props.row.avatar_url"
-                    :fit="fit"
                   ></el-image>
                 </span>
               </el-form-item>
@@ -103,6 +102,13 @@ export default {
   name: "",
   created() {
     this.getFoodList(); //获取食品数据
+
+    this.$notify({
+      title: "提示",
+      message: `对于给一个食品添加了多个分类, 却只显示一个, 是因为: 查询食品信息时,
+                使用了分组对id进行过滤, 有时间再重新写一下sql 🙄🙄`,
+      type: "warning",
+    });
   },
   data() {
     return {

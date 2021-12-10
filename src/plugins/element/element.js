@@ -58,6 +58,7 @@ import {
     Card,
     InputNumber,
     Popconfirm,
+    Icon
 } from 'element-ui'
 
 const components = {
@@ -115,7 +116,8 @@ const components = {
     Drawer,
     Card,
     InputNumber,
-    Popconfirm
+    Popconfirm,
+    Icon
 }
 
 

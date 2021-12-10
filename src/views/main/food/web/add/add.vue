@@ -10,7 +10,11 @@
       >
         <!-- 食品名 -->
         <el-form-item label="食品名称" prop="name">
-          <el-input class="input" v-model="foodForm.name"></el-input>
+          <el-input
+            class="input"
+            v-model="foodForm.name"
+            placeholder="食品名称, 如: 香甜可口的烤地瓜"
+          ></el-input>
         </el-form-item>
 
         <!-- 食品分类 -->
@@ -21,7 +25,7 @@
             filterable
             allow-create
             default-first-option
-            placeholder="请选择/自行输入分类"
+            placeholder="可设置多个分类哦"
           >
             <el-option
               v-for="(item, index) in options"
@@ -38,6 +42,7 @@
           <el-input
             class="input input-price"
             v-model="foodForm.price"
+            placeholder="请输入纯数字"
           ></el-input>
         </el-form-item>
 
@@ -46,6 +51,7 @@
           <el-input
             class="input input-price"
             v-model="foodForm.discount"
+            placeholder="折扣请输入小数, 如7折 0.7"
           ></el-input>
         </el-form-item>
 
@@ -54,6 +60,7 @@
           <el-input
             class="input input-price"
             v-model="foodForm.extra"
+            placeholder="请输入纯数字"
           ></el-input>
         </el-form-item>
 
