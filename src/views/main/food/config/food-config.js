@@ -13,6 +13,7 @@ export default {
         foodForm: {
             shop_id: '',
             name: '',
+            cost: '',
             price: '',
             discount: '',
             extra: '',
@@ -27,6 +28,9 @@ export default {
             name: [
                 { required: true, message: "请输入食品名称", trigger: "blur" },
                 { min: 2, max: 20, message: "长度在 2 到 20 个字符", trigger: "blur" },
+            ],
+            cost: [
+                { required: true, message: "请输入食品成本", trigger: "change" },
             ],
             price: [
                 { required: true, message: "请输入食品价格", trigger: "change" },
@@ -62,6 +66,7 @@ export default {
 
         foodForm: {
             name: '',
+            cost: '',
             price: '',
             discount: '',
             extra: '',

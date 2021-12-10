@@ -161,7 +161,7 @@ export default {
      * @returns Object data
      */
     dealOrderData(orders) {
-        let data = orders
+        let data = this.deepClone(orders);
 
         let current_id, next_id;
         let foodInfoArray = [];

@@ -2,10 +2,11 @@
   <div class="orders-today">
     <el-table
       :data="paginationOrders"
-      :default-sort="{ prop: 'createTime', order: 'descending' }"
+      :default-sort="{ prop: 'id', order: 'descending' }"
       style="width: 100%"
     >
-      <el-table-column prop="id" label="序号" width="50"> </el-table-column>
+      <el-table-column prop="id" label="序号" sortable width="50">
+      </el-table-column>
       <el-table-column prop="createTime" label="下单时间" sortable width="170">
       </el-table-column>
       <el-table-column label="订单信息">
@@ -14,6 +15,7 @@
             <el-popover trigger="hover" placement="top">
               <div v-for="(info, index) in scope.row.food_info" :key="index">
                 <p>名称: {{ info.name }}</p>
+                <p>成本: {{ info.cost }}</p>
                 <p>价格: {{ info.price }}</p>
                 <p>折扣: {{ info.discount }}</p>
                 <p>打包费: {{ info.extra }}</p>

@@ -92,7 +92,7 @@ export default {
     this.scanCodeWebToken();
   },
   methods: {
-    // 判断登录成功与否
+    // 登录成功后
     loginStatus(res) {
       if (res.code === 200) {
         this.socket.close();
@@ -100,18 +100,44 @@ export default {
         this.setToken(res.token);
         this.setUserInfo(res.userInfo);
         // 请求菜单数据
-        this.getMenu();
-      } else {
-        this.loginType = "error";
+        this.getMenu(res.userInfo.role_id);
+        this.$message({
+          type: this.loginType,
+          message: res.message,
+          showClose: true,
+        });
       }
-      this.$message({
-        type: this.loginType,
-        message: res.message,
-        showClose: true,
-      });
-      this.loginType = "success";
     },
-    // 账号密码登录
+    // 管理员登录
+    loginAdmin() {
+      this.$api.adminApis
+        .adminLogin({
+          data: {
+            account: this.loginForm.account,
+            password: this.loginForm.pass,
+            longKeep: false,
+          },
+        })
+        .then((res) => {
+          // console.log(res);
+          if (res.code == 200) {
+            this.loginStatus(res);
+          } else {
+            this.loginType = "error";
+            this.$message({
+              type: this.loginType,
+              message: res.message,
+              showClose: true,
+            });
+          }
+        });
+
+      this.disabled = true;
+      setTimeout(() => {
+        this.disabled = false;
+      }, 3000);
+    },
+    // 提交登录数据
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
@@ -126,13 +152,13 @@ export default {
             })
             .then((res) => {
               // console.log(res);
-              this.loginStatus(res);
+              if (res.code == 200) {
+                this.loginStatus(res);
+              } else {
+                // 尝试管理员登录
+                this.loginAdmin();
+              }
             });
-
-          this.disabled = true;
-          setTimeout(() => {
-            this.disabled = false;
-          }, 3000);
         } else {
           console.log("error login!!");
           return false;
@@ -144,15 +170,26 @@ export default {
       this.$refs[formName].resetFields();
     },
     // 请求菜单数据
-    getMenu() {
-      this.$api.userApis.getSellerMenu().then((res) => {
-        if (res.code === 200) {
-          // 将菜单信息保存至vuex和localStorage
-          this.setMenus(res.menus);
-          // 跳转到首页
-          this.$router.push("/main");
-        }
-      });
+    getMenu(role_id) {
+      if (role_id == 2) {
+        this.$api.adminApis.getSellerMenu().then((res) => {
+          if (res.code === 200) {
+            // 将菜单信息保存至vuex和localStorage
+            this.setMenus(res.menus);
+            // 跳转到首页
+            this.$router.push("/main");
+          }
+        });
+      } else if (role_id == 1) {
+        this.$api.adminApis.getAdminMenu().then((res) => {
+          if (res.code === 200) {
+            // 将菜单信息保存至vuex和localStorage
+            this.setMenus(res.menus);
+            // 跳转到首页
+            this.$router.push("/main");
+          }
+        });
+      }
     },
     // 点击右下角二维码图标时
     handleClick() {

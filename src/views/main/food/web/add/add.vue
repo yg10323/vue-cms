@@ -38,11 +38,20 @@
         </el-form-item>
 
         <!-- 价格 -->
+        <el-form-item label="成本" prop="cost">
+          <el-input
+            class="input input-price"
+            v-model="foodForm.cost"
+            placeholder="请输入纯数字(支持小数)"
+          ></el-input>
+        </el-form-item>
+
+        <!-- 价格 -->
         <el-form-item label="价格" prop="price">
           <el-input
             class="input input-price"
             v-model="foodForm.price"
-            placeholder="请输入纯数字"
+            placeholder="请输入纯数字(支持小数)"
           ></el-input>
         </el-form-item>
 
@@ -60,7 +69,7 @@
           <el-input
             class="input input-price"
             v-model="foodForm.extra"
-            placeholder="请输入纯数字"
+            placeholder="请输入纯数字(支持小数)"
           ></el-input>
         </el-form-item>
 

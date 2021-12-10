@@ -128,8 +128,8 @@
               <span>其他</span>
             </div>
             <div>1.自己封装的一些小工具函数</div>
-            <div>2. 项目属于毕业设计</div>
-            <div>3. 没有技术, 全是BUG~</div>
+            <div>2. 项目功能比较单一, 没有什么亮点</div>
+            <div>3. BUG较多</div>
           </el-card>
         </el-col>
       </el-row>

@@ -8,7 +8,7 @@
     </i>
     <div class="header-content">
       <!-- 左侧面包屑 -->
-      <div class="header-content-bread">面包屑</div>
+      <div class="header-content-bread">面包屑 还没写</div>
       <!-- 右侧用户头像 -->
       <div class="header-content-user">
         <el-dropdown @command="handleCommand" class="dropdown">
@@ -51,6 +51,7 @@ export default {
         location.reload();
       } else if (command === "myself") {
         // 修改侧边栏选中状态为个人信息,同时跳转路由
+        // 仅针对role_id为2
         this.setActive("1013");
         this.$router.push({ path: "/main/profile/myself" });
       }

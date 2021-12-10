@@ -9,6 +9,9 @@
               <el-form-item label="名称 : ">
                 <span>{{ props.row.name }}</span>
               </el-form-item>
+              <el-form-item label="成本 : ">
+                <span>{{ props.row.cost }}</span>
+              </el-form-item>
               <el-form-item label="价格 : ">
                 <span>{{ props.row.price }}</span>
               </el-form-item>
@@ -17,6 +20,9 @@
               </el-form-item>
               <el-form-item label="打包费 : ">
                 <span>{{ props.row.extra }}</span>
+              </el-form-item>
+              <el-form-item label="起购数 : ">
+                <span>{{ props.row.least }}</span>
               </el-form-item>
               <el-form-item label="商品已售 : ">
                 <span>{{ props.row.sold }}</span>
@@ -63,10 +69,10 @@
         <el-table-column prop="id" label="id"> </el-table-column>
         <el-table-column prop="name" label="名称"> </el-table-column>
         <el-table-column prop="food_classify" label="分类"> </el-table-column>
+        <el-table-column prop="cost" label="成本"></el-table-column>
         <el-table-column prop="price" label="价格"> </el-table-column>
-        <el-table-column prop="discount" label="折扣"> </el-table-column>
+        <el-table-column prop="sold" label="已售"> </el-table-column>
         <el-table-column prop="extra" label="打包费"> </el-table-column>
-        <el-table-column prop="least" label="起购份数"> </el-table-column>
         <el-table-column label="操作">
           <template slot-scope="scope">
             <el-button size="mini" @click="handleEdit(scope.$index, scope.row)"

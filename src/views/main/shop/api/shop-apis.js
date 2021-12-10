@@ -38,5 +38,10 @@ export default {
         name: '获取店铺所有订单',
         url: '/shop/orders/all',
         method: 'GET'
+    },
+    getBillInfo: {
+        name: '获取流水等信息',
+        url: '/shop/bill',
+        method: 'GET'
     }
 }

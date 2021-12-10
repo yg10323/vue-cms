@@ -23,6 +23,13 @@ import register from "./web/register.vue";
 export default {
   name: "",
   components: { login, register },
+  created() {
+    this.$notify({
+      type: "warning",
+      title: "提示",
+      message: "服务器资源有限, 已将socket服务关闭, 扫码登录无法使用",
+    });
+  },
 };
 </script>
 

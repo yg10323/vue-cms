@@ -39,19 +39,13 @@ instance.interceptors.response.use(
         // }
         const res = response.data;
         // 对响应数据做点什么
-        // if (res.code !== 200) {
-        //     // 401 未认证
-        //     if (res.code === 401) {
-        //         sessionStorage.clear();
-        //         VueRouter.push({
-        //             name: "login"
-        //         });
-        //     }
-
-        //     Vue.prototype.$message.error(res.message);
-        //     return Promise.reject(res.message);
-        // }
-        // console.log(res)
+        if (res.code !== 200) {
+            // 401 未认证
+            if (res.code === 401) {
+                localStorage.clear();
+                setTimeout(() => location.reload(), 1000)
+            }
+        }
         return res;
     },
     err => Promise.reject(err)

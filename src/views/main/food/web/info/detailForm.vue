@@ -36,6 +36,15 @@
         </el-select>
       </el-form-item>
 
+      <!-- 成本 -->
+      <el-form-item label="成本" prop="cost">
+        <el-input
+          class="input input-price"
+          v-model="foodForm.cost"
+          placeholder="请输入新的成本"
+        ></el-input>
+      </el-form-item>
+
       <!-- 价格 -->
       <el-form-item label="价格" prop="price">
         <el-input

@@ -1,15 +1,12 @@
 <template>
-  <div>店铺流水</div>
+  <div>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
 export default {
   name: "",
-  created() {},
-  data() {
-    return {};
-  },
-  methods: {},
 };
 </script>
 
