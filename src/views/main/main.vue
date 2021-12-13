@@ -64,10 +64,13 @@ export default {
 }
 
 .page-content {
+  position: relative;
   background-color: #f0f2f5;
   color: #333;
   // text-align: center;
   height: calc(100vh - 60px);
+
+  z-index: 9999;
 
   .page-info {
     background-color: #fff;
