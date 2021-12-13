@@ -1,0 +1,10 @@
+{
+    "axios_config": {
+        "host": "http://124.70.20.215",
+        "port": 2140
+    },
+    "web_socket_config": {
+        "host": "http://124.70.20.215",
+        "port": 1070
+    }
+}
