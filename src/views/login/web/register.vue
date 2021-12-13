@@ -91,14 +91,26 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          //   alert("submit!");
           //   发送网络请求
 
-          this.$message({
-            type: "success",
-            message: "注册成功, 请返回登录~",
-            showClose: true,
-          });
+          this.$api.userApis
+            .sellerRegister({
+              data: {
+                account: this.registerForm.account,
+                password: this.registerForm.pass,
+              },
+            })
+            .then((res) => {
+              if (res.code === 200) {
+                this.$message({
+                  type: "success",
+                  message: `${this.registerForm.account}注册成功, 请返回登录~`,
+                  showClose: true,
+                });
+              } else {
+                console.log("error_register");
+              }
+            });
 
           this.disabled = true;
           setTimeout(() => {

@@ -1,5 +1,8 @@
 <template>
-  <div>用户管理</div>
+  <div class="user">
+    <div class="search-form"></div>
+    <div class="table-data"></div>
+  </div>
 </template>
 
 <script>
