@@ -33,6 +33,11 @@ export default {
         name: '注销账号',
         url: '/seller/delete',
         method: 'DELETE'
+    },
+    postFeedBack: {
+        name: '工单反馈',
+        url: '/seller/feedback/post',
+        method: 'POST'
     }
 
 }

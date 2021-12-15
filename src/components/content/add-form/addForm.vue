@@ -34,6 +34,17 @@
                 />
               </template>
 
+              <!-- textarea -->
+              <template v-if="item.type === 'textarea'">
+                <el-input
+                  type="textarea"
+                  :rows="item.rows"
+                  :placeholder="item.placeholder"
+                  v-model="formData[item.prop]"
+                >
+                </el-input>
+              </template>
+
               <!-- 下拉列表 -->
               <template v-else-if="item.type === 'select'">
                 <el-select

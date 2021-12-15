@@ -22,5 +22,11 @@ export default {
             meta: { name: '订单管理' },
             component: () => import('@/views/main/admin/web/order/order.vue')
         },
+        {
+            path: 'feedback',
+            name: 'feedback',
+            meta: { name: '工单反馈' },
+            component: () => import('@/views/main/admin/web/feedback/feedback.vue')
+        },
     ]
 }

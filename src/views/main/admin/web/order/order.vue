@@ -115,12 +115,12 @@ export default {
     // 分页: 页数改变
     handlePageChange(page) {
       this.query.page = page;
-      this.getShopByQuery();
+      this.getOrderByQuery();
     },
     // 分页: 每页数量改变
     handleOffsetChange(offset) {
       this.query.offset = offset;
-      this.getShopByQuery();
+      this.getOrderByQuery();
     },
   },
 };

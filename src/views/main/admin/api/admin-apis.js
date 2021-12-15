@@ -74,4 +74,14 @@ export default {
         url: '/role/order/status',
         method: 'POST'
     },
+    getFeedBackList: {
+        name: '获取工单反馈',
+        url: '/role/feedback/list',
+        method: 'POST'
+    },
+    replyFeedback: {
+        name: '回复工单',
+        url: '/role/feedback/reply',
+        method: 'POST'
+    }
 }

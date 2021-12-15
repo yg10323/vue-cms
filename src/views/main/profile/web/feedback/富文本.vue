@@ -5,15 +5,13 @@
       <el-input placeholder="请输入反馈主题" v-model="contentInfo.title">
       </el-input>
     </div>
-    <div class="content">
-      <el-input
-        type="textarea"
-        :rows="10"
-        placeholder="请在此输入反馈内容..."
-        v-model="contentInfo.content"
-      >
-      </el-input>
-    </div>
+    <mavon-editor
+      v-model="contentInfo.content"
+      style="min-height: 470px; max-height: 500px"
+      @save="save"
+      @imgAdd="imgAdd"
+    >
+    </mavon-editor>
     <div class="add_footer">
       <div class="footer_top">
         <span>
@@ -24,7 +22,14 @@
   </div>
 </template>
 
+
 <script>
+//安装 npm i mavon-editor
+// 在main.js中引入并注册
+// import mavonEditor from 'mavon-editor'
+// import 'mavon-editor/dist/css/index.css'
+// Vue.use(mavonEditor)
+
 export default {
   name: "",
   data() {
@@ -35,15 +40,13 @@ export default {
       },
     };
   },
-  created() {
-    this.$notify({
-      type: "warning",
-      title: "说明",
-      message:
-        "该组件的同级目录下名为 富文本.vue 的组件为富文本编辑器, 该组件使用文本域做简单处理",
-    });
-  },
   methods: {
+    save(value, render) {
+      this.$message("已保存书写内容");
+    },
+    imgAdd(filename, imgfile) {
+      this.$message("图片上传功能暂未添加");
+    },
     submitData() {
       if (!this.contentInfo.title || !this.contentInfo.content) {
         this.$message({ type: "error", message: "主题或反馈内容为空" });
@@ -53,16 +56,7 @@ export default {
       this.$api.userApis
         .postFeedBack({ data: this.contentInfo })
         .then((res) => {
-          if (res.code == 200) {
-            this.$message({ type: "success", message: res.message });
-            // 跳转
-            // setTimeout(() => {
-            //   // 跳转
-            //   // location.reload();
-            // }, 1000);
-          } else {
-            this.$message({ type: "error", message: res.message });
-          }
+          console.log(res);
         });
     },
   },
