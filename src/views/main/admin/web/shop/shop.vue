@@ -36,12 +36,6 @@
             >{{ slotProps.row.usable ? "正常" : "封禁" }}</el-button
           >
         </template>
-        <template #role_id="slotProps">
-          {{ slotProps.row.role_id == 1 ? "admin" : "user" }}
-        </template>
-        <template #createTime="slotProps">
-          {{ $utils.formatTime(new Date(slotProps.row.createTime).getTime()) }}
-        </template>
         <template #updateTime="slotProps">
           {{ $utils.formatTime(new Date(slotProps.row.updateTime).getTime()) }}
         </template>
@@ -100,7 +94,7 @@ export default {
     this.getShopByQuery();
   },
   methods: {
-    // 重置 => 默认显示admin的数据
+    // 重置
     resetSearchForm() {
       this.query = { role: "shop", page: 1, offset: 10 };
       this.getShopByQuery();
@@ -112,20 +106,6 @@ export default {
       // console.log(this.query);
       this.getShopByQuery();
     },
-    // 添加店铺
-    addFormRequest(data) {
-      this.$api.adminApis.addShop({ data }).then((res) => {
-        if (res.code == 200) {
-          this.$message({ type: "success", message: res.message });
-        } else {
-          this.$message({ type: "error", message: res.message });
-        }
-      });
-    },
-    // 控制dialog
-    handleDialog() {
-      this.showDialog = !this.showDialog;
-    },
     // 根据query获取shop
     getShopByQuery() {
       this.$api.adminApis.getShopList({ data: this.query }).then((res) => {
@@ -136,6 +116,10 @@ export default {
           this.$notify.error({ title: "错误", message: res.message });
         }
       });
+    },
+    // 控制dialog
+    handleDialog() {
+      this.showDialog = !this.showDialog;
     },
     // 更改usable
     handleUsable(row) {

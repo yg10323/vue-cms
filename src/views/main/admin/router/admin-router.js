@@ -16,5 +16,11 @@ export default {
             meta: { name: '店铺管理' },
             component: () => import('@/views/main/admin/web/shop/shop.vue')
         },
+        {
+            path: 'order',
+            name: 'order',
+            meta: { name: '订单管理' },
+            component: () => import('@/views/main/admin/web/order/order.vue')
+        },
     ]
 }

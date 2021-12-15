@@ -63,5 +63,15 @@ export default {
         name: '添加店铺',
         url: '/role/shop/add',
         method: 'POST'
-    }
+    },
+    getOrderList: {
+        name: '获取订单信息',
+        url: '/role/order/list',
+        method: 'POST'
+    },
+    changeOrderStatus: {
+        name: '更改order的状态',
+        url: '/role/order/status',
+        method: 'POST'
+    },
 }
