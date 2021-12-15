@@ -44,7 +44,11 @@
           {{ $utils.formatTime(new Date(slotProps.row.updateTime).getTime()) }}
         </template>
         <template #handle="slotProps">
-          <el-button size="mini" icon="el-icon-edit" type="text"
+          <el-button
+            size="mini"
+            icon="el-icon-edit"
+            type="text"
+            @click="handleEdit(slotProps.row)"
             >编辑</el-button
           >
 
@@ -89,7 +93,7 @@ import searchForm from "@/components/content/search-form/searchForm.vue";
 import tableForm from "@/components/content/table-form/tableForm.vue";
 import addForm from "@/components/content/add-form/addForm.vue";
 
-import config from "../../config/admin-config";
+import config from "../../config/user-config.js";
 
 export default {
   components: { searchForm, tableForm, addForm },
@@ -179,6 +183,14 @@ export default {
         } else {
           this.$notify.error({ title: "错误", message: res.message });
         }
+      });
+    },
+    // 编辑
+    handleEdit(row) {
+      this.$notify({
+        type: "warning",
+        title: "提示",
+        message: "编辑功能还没写",
       });
     },
     // 删除buyer

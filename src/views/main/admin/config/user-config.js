@@ -14,7 +14,7 @@ export default {
                 { label: '买家', value: 'buyer' },
             ],
             rules: [
-                { required: true, message: "请选择角色后进行查询", trigger: "blur" },
+                { required: true, message: "请选择要查询的角色", trigger: "blur" },
             ]
         },
         {

@@ -43,5 +43,25 @@ export default {
         name: '添加user',
         url: '/role/user/add',
         method: 'POST'
+    },
+    getShopList: {
+        name: '获取店铺信息',
+        url: '/role/shop/list',
+        method: 'POST'
+    },
+    changeShopUsable: {
+        name: '更改shop的usable',
+        url: '/role/shop/usable',
+        method: 'POST'
+    },
+    deleteShop: {
+        name: '根据id删除shop',
+        url: '/role/shop/delete',
+        method: 'POST'
+    },
+    addShop: {
+        name: '添加店铺',
+        url: '/role/shop/add',
+        method: 'POST'
     }
 }
