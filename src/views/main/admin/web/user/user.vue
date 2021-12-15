@@ -1,5 +1,5 @@
 <template>
-  <div class="user">
+  <div class="user-manage">
     <div class="search-form">
       <search-form
         :searchConfig="UserSearchFormConfig"
@@ -16,7 +16,10 @@
       >
         <!-- 头部插槽 -->
         <template #handler>
-          <el-button icon="el-icon-circle-plus-outline" type="primary"
+          <el-button
+            icon="el-icon-circle-plus-outline"
+            type="primary"
+            @click="handleDialog"
             >添加</el-button
           >
         </template>
@@ -65,22 +68,40 @@
         </template>
       </table-form>
     </div>
+    <div class="add-user">
+      <el-dialog
+        title="添加用户信息"
+        :visible.sync="showDialog"
+        width="40%"
+        center
+      >
+        <add-form
+          :addConfig="UserAddFormConfig"
+          @addFormRequest="addFormRequest"
+        />
+      </el-dialog>
+    </div>
   </div>
 </template>
 
 <script>
 import searchForm from "@/components/content/search-form/searchForm.vue";
 import tableForm from "@/components/content/table-form/tableForm.vue";
+import addForm from "@/components/content/add-form/addForm.vue";
+
 import config from "../../config/admin-config";
+
 export default {
-  components: { searchForm, tableForm },
+  components: { searchForm, tableForm, addForm },
   name: "",
   data() {
     return {
       UserSearchFormConfig: config.UserSearchFormConfig,
       UserTableFormConfig: config.UserTableFormConfig,
+      UserAddFormConfig: config.UserAddFormConfig,
       defaultShowInfo: {},
       query: { role: "admin", page: 1, offset: 10 },
+      showDialog: false,
     };
   },
   created() {
@@ -97,6 +118,15 @@ export default {
       queryData = this.$utils.removeEmpty(queryData);
       this.query = { ...this.query, ...queryData };
       this.getUserByQuery();
+    },
+    addFormRequest(data) {
+      this.$api.adminApis.addUser({ data }).then((res) => {
+        if (res.code == 200) {
+          this.$message({ type: "success", message: res.message });
+        } else {
+          this.$message({ type: "error", message: res.message });
+        }
+      });
     },
     // 根据query获取admin/seller/buyer
     getUserByQuery() {
@@ -121,6 +151,13 @@ export default {
     },
     // 删除admin
     deleteAdmin(row) {
+      if (row.level == 1) {
+        this.$notify.error({
+          title: "错误",
+          message: "level为1的数据不允许操作",
+        });
+        return;
+      }
       this.$api.adminApis
         .deleteAdmin({ data: { id: row.id, account: row.account } })
         .then((res) => {
@@ -156,7 +193,24 @@ export default {
     },
     // 更改状态
     handleUsable(row) {
-      console.log(row.role_id, row.usable);
+      if (row.level == 1) {
+        this.$notify.error({
+          title: "错误",
+          message: "level为1的数据不允许操作",
+        });
+        return;
+      }
+      this.$api.adminApis
+        .changeUserUsable({
+          data: { usable: !row.usable, id: row.id, role_id: row.role_id },
+        })
+        .then((res) => {
+          if (res.code == 200) {
+            this.getUserByQuery();
+          } else {
+            this.$notify.error({ title: "错误", message: res.message });
+          }
+        });
     },
     // 分页: 页数改变
     handlePageChange(page) {
@@ -167,6 +221,10 @@ export default {
     handleOffsetChange(offset) {
       this.query.offset = offset;
       this.getUserByQuery();
+    },
+    // 控制dialog
+    handleDialog() {
+      this.showDialog = !this.showDialog;
     },
   },
 };

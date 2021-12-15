@@ -38,5 +38,10 @@ export default {
         name: '更改user的usable',
         url: '/role/user/usable',
         method: 'POST'
+    },
+    addUser: {
+        name: '添加user',
+        url: '/role/user/add',
+        method: 'POST'
     }
 }

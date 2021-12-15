@@ -58,7 +58,8 @@ import {
     Card,
     InputNumber,
     Popconfirm,
-    Icon
+    Icon,
+    RadioButton
 } from 'element-ui'
 
 const components = {
@@ -117,7 +118,8 @@ const components = {
     Card,
     InputNumber,
     Popconfirm,
-    Icon
+    Icon,
+    RadioButton
 }
 
 

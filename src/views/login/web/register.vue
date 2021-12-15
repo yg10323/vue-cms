@@ -92,7 +92,6 @@ export default {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           //   发送网络请求
-
           this.$api.userApis
             .sellerRegister({
               data: {

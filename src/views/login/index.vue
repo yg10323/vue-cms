@@ -27,7 +27,9 @@ export default {
     this.$notify({
       type: "warning",
       title: "提示",
-      message: "服务器资源有限, 已将socket服务关闭, 扫码登录无法使用",
+      message: `服务器资源有限, 已将socket服务关闭, 扫码登录无法使用,
+        注册的账号为卖家, 如需添加管理员账号,请登录账号: super, 密码: super 或其他管理员账号`,
+      duration: 1000 * 30,
     });
   },
 };

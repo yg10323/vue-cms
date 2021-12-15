@@ -10,5 +10,11 @@ export default {
             meta: { name: '用户管理' },
             component: () => import('@/views/main/admin/web/user/user.vue')
         },
+        {
+            path: 'shop',
+            name: 'shop',
+            meta: { name: '店铺管理' },
+            component: () => import('@/views/main/admin/web/shop/shop.vue')
+        },
     ]
 }
