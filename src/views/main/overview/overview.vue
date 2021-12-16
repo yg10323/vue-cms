@@ -39,7 +39,7 @@
           <i class="iconfont icon-icon_website_huabanfuben"></i>
           其他
         </template>
-        Element-UI、Axios、Socket、uni-app
+        Element-UI、Axios、Socket.io、uni-app、Echarts
       </el-descriptions-item>
       <el-descriptions-item>
         <template slot="label">
