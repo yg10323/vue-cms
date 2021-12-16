@@ -1,4 +1,6 @@
 
+import { geoCoordMap } from '../components/content/base-echarts/data/geoCoordMap'
+
 export default {
     /**
      * 根据角色动态匹配路由
@@ -215,5 +217,24 @@ export default {
             }
         }
         return data
+    },
+
+    /**
+     * echarts地图城市经纬度匹配
+     * @param {Array} data 
+     * @returns new Array
+     */
+    convertData(data) {
+        var res = [];
+        for (var i = 0; i < data.length; i++) {
+            var geoCoord = geoCoordMap[data[i].name];
+            if (geoCoord) {
+                res.push({
+                    name: data[i].name,
+                    value: geoCoord.concat(data[i].value)
+                });
+            }
+        }
+        return res;
     }
 }

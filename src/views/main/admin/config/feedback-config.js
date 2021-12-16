@@ -4,7 +4,7 @@ export default {
         {
             type: 'input', label: '卖家id', prop: 'seller_id', placeholder: '输入查询的id'
         },
-        { type: 'input', label: '反馈主题', prop: 'title', placeholder: '输入查询的店铺名' },
+        { type: 'input', label: '反馈主题', prop: 'title', placeholder: '输入查询的主题' },
         {
             type: 'datepicker', label: '日期范围',
             otherOptions: {

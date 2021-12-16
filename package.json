@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.24.0",
     "core-js": "^3.6.5",
+    "echarts": "^5.2.2",
     "element-ui": "^2.15.6",
     "socket.io-client": "^4.4.0",
     "vue": "^2.6.11",

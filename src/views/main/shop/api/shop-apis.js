@@ -39,9 +39,19 @@ export default {
         url: '/shop/orders/all',
         method: 'GET'
     },
-    getBillInfo: {
+    getBill: {
         name: '获取流水等信息',
         url: '/shop/bill',
+        method: 'GET'
+    },
+    getSold: {
+        name: '获取店铺食品销售数量',
+        url: "/shop/sold",
+        method: 'GET'
+    },
+    getMapData: {
+        name: '获取订单的分布以及数量',
+        url: '/shop/map_data',
         method: 'GET'
     }
 }
