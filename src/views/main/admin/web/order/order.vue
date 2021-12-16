@@ -25,6 +25,16 @@
             >{{ slotProps.row.done ? "进行中" : "已完成" }}</el-button
           >
         </template>
+        <template #update_flag="slotProps">
+          <el-button
+            class="btn-usable"
+            plain
+            size="mini"
+            :type="slotProps.row.update_flag ? 'primary' : 'info'"
+            @click="handleUpdateFlag(slotProps.row)"
+            >{{ slotProps.row.update_flag ? "今日" : "往日" }}</el-button
+          >
+        </template>
         <template #createTime="slotProps">
           {{ $utils.formatTime(new Date(slotProps.row.createTime).getTime()) }}
         </template>
@@ -95,6 +105,20 @@ export default {
       this.$api.adminApis
         .changeOrderStatus({
           data: { done: !row.done, id: row.id },
+        })
+        .then((res) => {
+          if (res.code == 200) {
+            this.getOrderByQuery();
+          } else {
+            this.$notify.error({ title: "错误", message: res.message });
+          }
+        });
+    },
+    // 日期归属
+    handleUpdateFlag(row) {
+      this.$api.adminApis
+        .changeOrderUpdateFlag({
+          data: { update_flag: !row.update_flag, id: row.id },
         })
         .then((res) => {
           if (res.code == 200) {

@@ -74,6 +74,11 @@ export default {
         url: '/role/order/status',
         method: 'POST'
     },
+    changeOrderUpdateFlag: {
+        name: '更改order的update_flag',
+        url: '/role/order/update_flag',
+        method: 'POST'
+    },
     getFeedBackList: {
         name: '获取工单反馈',
         url: '/role/feedback/list',

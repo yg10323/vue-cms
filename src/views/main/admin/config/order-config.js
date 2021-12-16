@@ -22,7 +22,7 @@ export default {
         isShowIndex: true,
         propList: [
             { prop: "id", label: "id", minWidth: "40", slotName: "id" },
-            { prop: "buyer_id", label: "买家id", minWidth: "80", slotName: "buyer_id" },
+            { prop: "buyer_id", label: "买家id", minWidth: "60", slotName: "buyer_id" },
             {
                 prop: "order_number",
                 label: "订单编号",
@@ -44,15 +44,21 @@ export default {
                 slotName: "done",
             },
             {
+                prop: "update_flag",
+                label: "日期归属",
+                minWidth: "60",
+                slotName: "update_flag",
+            },
+            {
                 prop: "createTime",
                 label: "下单时间",
-                minWidth: "120",
+                minWidth: "100",
                 slotName: "createTime",
             },
             {
                 prop: "updateTime",
                 label: "完成时间",
-                minWidth: "120",
+                minWidth: "100",
                 slotName: "updateTime",
             },
             {
