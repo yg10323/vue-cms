@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
   name: "",
   data() {
@@ -32,6 +33,7 @@ export default {
       contentInfo: {
         title: "",
         content: "",
+        type: "feedback",
       },
     };
   },
@@ -49,22 +51,23 @@ export default {
         this.$message({ type: "error", message: "主题或反馈内容为空" });
         return;
       }
-
       this.$api.userApis
         .postFeedBack({ data: this.contentInfo })
         .then((res) => {
           if (res.code == 200) {
             this.$message({ type: "success", message: res.message });
             // 跳转
-            // setTimeout(() => {
-            //   // 跳转
-            //   // location.reload();
-            // }, 1000);
+            setTimeout(() => {
+              // 跳转
+              this.setActive("1021");
+              this.$router.push({ path: "/main/profile/my_feedback" });
+            }, 1000);
           } else {
             this.$message({ type: "error", message: res.message });
           }
         });
     },
+    ...mapMutations(["setActive"]),
   },
 };
 </script>

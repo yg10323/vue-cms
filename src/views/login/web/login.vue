@@ -77,7 +77,6 @@ export default {
         pass: [{ validator: validatepass, trigger: "blur" }],
       },
       disabled: false,
-      loginType: "success",
       showQrCode: false,
       socket: "", //socket连接
       qrCodeBase64: "", //二维码base64字符串
@@ -102,7 +101,7 @@ export default {
         // 请求菜单数据
         this.getMenu(res.userInfo.role_id);
         this.$message({
-          type: this.loginType,
+          type: "success",
           message: res.message,
           showClose: true,
         });
@@ -123,9 +122,8 @@ export default {
           if (res.code == 200) {
             this.loginStatus(res);
           } else {
-            this.loginType = "error";
             this.$message({
-              type: this.loginType,
+              type: "error",
               message: res.message,
               showClose: true,
             });

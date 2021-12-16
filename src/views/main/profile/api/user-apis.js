@@ -38,6 +38,16 @@ export default {
         name: '工单反馈',
         url: '/seller/feedback/post',
         method: 'POST'
+    },
+    getMyFeedback: {
+        name: '获取我的工单',
+        url: '/seller/feedback/self',
+        method: 'GET'
+    },
+    replyFeedback: {
+        name: '回复工单',
+        url: '/seller/feedback/reply',
+        method: 'POST'
     }
 
 }

@@ -156,7 +156,7 @@ export default {
     },
 
     /**
-     * 
+     * 合并相同订单(id在数据库经过排序)
      * @param {Object} orders 
      * @returns Object data
      */
@@ -191,5 +191,29 @@ export default {
             }
 
         }
+    },
+
+    /**
+     * 合并同一工单的回复
+     * @param {Array} feedbackList 
+     * @returns new array
+     */
+    dealFeedback(feedbackList) {
+        let data = this.deepClone(feedbackList)
+        for (let i = 0; i < data.length; i++) {
+            data[i].children = [];
+            for (let j = 0; j < feedbackList.length; j++) {
+                if (data[i].id == feedbackList[j].id) {
+                    continue;
+                }
+                if (data[i].id == feedbackList[j].belong) {
+                    data[i].children.push(feedbackList[j])
+                    feedbackList.splice(j, 1);
+                    data.splice(j, 1);
+                    j -= 1;//保证删除数据后的内层循环从当前j继续
+                }
+            }
+        }
+        return data
     }
 }

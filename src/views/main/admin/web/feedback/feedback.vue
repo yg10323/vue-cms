@@ -103,12 +103,21 @@ export default {
     // 提交回复
     addFormRequest(data) {
       //title,content,seller_id, id
+      data.content = "来自admin的回复: " + data.content;
       const addInfo = {
         ...data,
         title: this.replayRow.title,
         seller_id: this.replayRow.seller_id,
         feedback_id: this.replayRow.id,
+        type: "reply",
       };
+      // 如果没有belong, 说明回复的这条数据为首次发的工单
+      if (this.replayRow.belong == null) {
+        addInfo.belong = addInfo.feedback_id;
+      } else {
+        addInfo.belong = this.replayRow.belong;
+      }
+
       this.$api.adminApis.replyFeedback({ data: addInfo }).then((res) => {
         if (res.code == 200) {
           this.$message({ type: "success", message: res.message });

@@ -22,10 +22,12 @@ export default {
         isShowIndex: true,
         propList: [
             { prop: "id", label: "id", minWidth: "40", slotName: "id" },
-            { prop: "seller_id", label: "卖家id", minWidth: "80", slotName: "seller_id" },
+            { prop: "seller_id", label: "卖家id", minWidth: "60", slotName: "seller_id" },
             { prop: "title", label: "主题", minWidth: "80", slotName: "title" },
             { prop: "content", label: "内容", minWidth: "120", slotName: "content" },
             { prop: "feedback_id", label: "回复反馈id", minWidth: "60", slotName: "feedback_id" },
+            { prop: "belong", label: "所属主工单", minWidth: "60", slotName: "belong" },
+            { prop: "type", label: "类型", minWidth: "70", slotName: "type" },
             {
                 prop: "createTime",
                 label: "创建时间",
@@ -40,7 +42,7 @@ export default {
             },
             {
                 label: "操作",
-                minWidth: "100",
+                minWidth: "60",
                 slotName: "handle",
             },
         ],
