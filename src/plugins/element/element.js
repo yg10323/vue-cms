@@ -59,7 +59,8 @@ import {
     InputNumber,
     Popconfirm,
     Icon,
-    RadioButton
+    RadioButton,
+    Rate
 } from 'element-ui'
 
 const components = {
@@ -119,7 +120,8 @@ const components = {
     InputNumber,
     Popconfirm,
     Icon,
-    RadioButton
+    RadioButton,
+    Rate
 }
 
 

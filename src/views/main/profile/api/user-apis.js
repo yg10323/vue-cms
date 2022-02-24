@@ -48,6 +48,11 @@ export default {
         name: '回复工单',
         url: '/seller/feedback/reply',
         method: 'POST'
+    },
+    replyEvaluate: {
+        name: '回复评价',
+        url: '/seller/evaluate/reply',
+        method: 'POST'
     }
 
 }

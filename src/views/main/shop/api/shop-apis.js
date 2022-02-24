@@ -53,5 +53,10 @@ export default {
         name: '获取订单的分布以及数量',
         url: '/shop/map_data',
         method: 'GET'
+    },
+    getShopEvaluates: {
+        name: '获取店铺评价',
+        url: '/shop/evaluates',
+        method: 'post'
     }
 }

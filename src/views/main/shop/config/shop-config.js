@@ -71,5 +71,19 @@ export default {
         headers: {
             "Content-Type": "multipart/form-data",
         },
+    },
+
+    // 回复评价的表单配置
+    commentAddFormConfig: {
+        options: ['reply'],
+        reply: [
+            {
+                type: 'textarea', label: '回复', prop: 'content', placeholder: '输入回复内容...', clearable: true,
+                rows: 10,
+                rules: [
+                    { required: true, message: "内容不能为空", trigger: "blur" },
+                ]
+            },
+        ],
     }
 }
