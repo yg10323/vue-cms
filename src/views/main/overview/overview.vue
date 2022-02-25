@@ -18,7 +18,7 @@
           <i class="iconfont icon-kaifa"></i>
           前端
         </template>
-        Vue.js
+        Vue.js、uni-app
       </el-descriptions-item>
       <el-descriptions-item>
         <template slot="label">
@@ -39,7 +39,7 @@
           <i class="iconfont icon-icon_website_huabanfuben"></i>
           其他
         </template>
-        Element-UI、Axios、Socket.io、uni-app、Echarts
+        Element-UI、Axios、Socket.io、Echarts
       </el-descriptions-item>
       <el-descriptions-item>
         <template slot="label">

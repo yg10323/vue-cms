@@ -138,6 +138,7 @@ export default {
         // console.log(res);
         if (res.code == 200) {
           this.defaultShowInfo = res.data;
+          console.log(this.defaultShowInfo);
         } else {
           this.$notify.error({ title: "错误", message: res.message });
         }

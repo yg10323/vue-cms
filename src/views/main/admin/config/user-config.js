@@ -43,16 +43,17 @@ export default {
             },
             { prop: "usable", label: "状态", minWidth: "60", slotName: "usable" },
             { prop: "role_id", label: "角色", minWidth: "40", slotName: "role_id" },
+            { prop: "level", label: "等级", minWidth: "40", slotName: "level" },
             {
                 prop: "createTime",
                 label: "创建时间",
-                minWidth: "120",
+                minWidth: "100",
                 slotName: "createTime",
             },
             {
                 prop: "updateTime",
                 label: "更新时间",
-                minWidth: "120",
+                minWidth: "100",
                 slotName: "updateTime",
             },
             {
