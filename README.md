@@ -11,7 +11,7 @@ npm start
 ```
 ## 项目的一些介绍
 ### 一. 扫码登陆
-扫码功能需配合 [uni-app的前台点餐项目](https://github.com/yg10323/uniapp-order) 使用
+扫码功能需配合 [uni-app的前台点餐项目](https://github.com/yg10323/uniapp-order) 使用   
 二维码由node后台生成, 扫码登陆功能自己实现, 由socket.io、redis、BroadcastChannel配合完成
 
 ![image](https://user-images.githubusercontent.com/48284901/155941081-b598cf04-4308-4d34-b498-167f6aeb208e.png)
