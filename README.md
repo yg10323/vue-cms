@@ -1,18 +1,14 @@
 # vue-front-cms
 外卖点餐的后台管理系统, 对应的后台接口以及uni-app写的点餐系统都在仓库中, 自行查看
 
-## 项目可直接运行
-
-
- 
-## Project setup
+## 安装依赖
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### 运行
 ```
-npm run serve
+npm start
 ```
 
 ### Compiles and minifies for production
