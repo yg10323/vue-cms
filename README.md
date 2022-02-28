@@ -20,5 +20,13 @@ npm start
 店铺管理包括: 注册店铺、店铺信息查看编辑、店铺流水以及店铺评价
 ##### 2.2.1 注册店铺
 一个卖家账号只允许注册一个店铺, 并且在注册店铺之前要进行实名登记(在个人中心中)
+(gif图像加载慢, 请耐心等待)
 ![注册店铺](https://user-images.githubusercontent.com/48284901/155942923-2b4f9e96-6d23-4cbe-9013-3096d9da722c.gif)
-
+##### 2.2.2 店铺信息管理
+![店铺信息](https://user-images.githubusercontent.com/48284901/155943328-62b9a574-eeac-4a3b-bedc-b2ab212018d7.gif)
+##### 2.2.3 店铺流水
+使用echarts做的图表展示
+![image](https://user-images.githubusercontent.com/48284901/155943503-e282cd83-2b44-424f-b05d-f8614c598f3b.png)
+##### 2.2.4 评价管理
+卖家可对买家的评价进行评价
+![image](https://user-images.githubusercontent.com/48284901/155943676-bb15889d-b1d1-4c70-b9b1-5e5652cabbd6.png)
