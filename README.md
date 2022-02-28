@@ -16,4 +16,9 @@ npm start
 ### 二. 卖家相关的功能
 #### 2.1 总览
 ![image](https://user-images.githubusercontent.com/48284901/155941920-f5f264a9-588e-4223-8a4a-aa2a80eadaf5.png)
+#### 2.2 店铺管理
+店铺管理包括: 注册店铺、店铺信息查看编辑、店铺流水以及店铺评价
+##### 2.2.1 注册店铺
+一个卖家账号只允许注册一个店铺, 并且在注册店铺之前要进行实名登记(在个人中心中)
+![注册店铺](https://user-images.githubusercontent.com/48284901/155942923-2b4f9e96-6d23-4cbe-9013-3096d9da722c.gif)
 
