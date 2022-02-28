@@ -60,7 +60,7 @@ npm start
 ### 3. 管理员相关的功能
 管理员主要有四大功能: 用户管理、店铺管理、订单管理、工单管理
 #### 3.1 用户管理
-![注册店铺](https://user-images.githubusercontent.com/48284901/155945695-b5aaf5e2-1226-4888-9856-e48b461b8e55.gif)
+![用户管理](https://user-images.githubusercontent.com/48284901/155985001-ae62e03c-e79e-41cf-b1fd-65032b838e09.gif)
 #### 3.2 店铺管理
 ![image](https://user-images.githubusercontent.com/48284901/155945739-35c6403e-e35f-4b74-ad50-03308bdb24bd.png)
 #### 3.3 订单管理
