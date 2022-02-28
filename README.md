@@ -1,5 +1,5 @@
 # vue-front-cms
-外卖点餐的后台管理系统, 对应的后台接口以及uni-app写的点餐系统都在仓库中, 自行查看
+外卖点餐的后台管理系统, 对应的前台点餐系统: [uniapp-order](https://github.com/yg10323/uniapp-order) 和 后端接口: [koa-apis](https://github.com/yg10323/koa-apis)
 
 ## 安装依赖
 ```
@@ -57,6 +57,15 @@ npm start
 可以与管理员端进行互相的信息反馈
 
 ![image](https://user-images.githubusercontent.com/48284901/155944965-9d878669-ec97-4fbc-93c8-9a6ca77acf5c.png)
-
+### 3. 管理员相关的功能
+管理员主要有四大功能: 用户管理、店铺管理、订单管理、工单管理
+#### 3.1 用户管理
+![注册店铺](https://user-images.githubusercontent.com/48284901/155945695-b5aaf5e2-1226-4888-9856-e48b461b8e55.gif)
+#### 3.2 店铺管理
+![image](https://user-images.githubusercontent.com/48284901/155945739-35c6403e-e35f-4b74-ad50-03308bdb24bd.png)
+#### 3.3 订单管理
+![image](https://user-images.githubusercontent.com/48284901/155945769-f6e274c0-a867-40ba-8ee3-c9a03b6c916b.png)
+#### 3.4 工单管理
+![工单管理](https://user-images.githubusercontent.com/48284901/155945881-280dbb71-a952-49d7-9792-731a629c70df.gif)
 
 
